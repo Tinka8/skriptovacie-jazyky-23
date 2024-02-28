@@ -16,7 +16,7 @@
     <body>
         <header class="container main-header">
             <div class="logo-holder">
-                <a href="index.html"><img src="img/logo.png" height="40 " /></a>
+                <a href="index.php"><img src="img/logo.png" height="40 " /></a>
             </div>
             <nav class="main-nav">
                 <ul class="main-menu" id="main-menu container">
@@ -53,18 +53,14 @@
                 </div>
             </section>
             <section class="container">
-                <div class="accordion">
-                    <div class="question">Otázka 1</div>
-                    <div class="answer">Odpoveď 1</div>
-                </div>
-                <div class="accordion">
-                    <div class="question">Otázka 2</div>
-                    <div class="answer">Odpoveď 2</div>
-                </div>
-                <div class="accordion">
-                    <div class="question">Otázka 3</div>
-                    <div class="answer">Odpoveď 3</div>
-                </div>
+                <?php include "otazky.php"; ?>
+                    <?php for ($i = 0; $i < count($otazky); $i++) { ?>
+                        <div class="accordion">
+                            <div class="question"><?php echo $otazky[$i]; ?></div>
+                            <div class="answer"><?php echo $odpovede[$i]; ?></div>
+                        </div>
+                    <?php } 
+                ?>
             </section>
         </main>
         <footer class="container bg-dark text-white">
@@ -86,18 +82,6 @@
                 </div>
                 <div class="col-25 text-left">
                     <h4>Kontaktujte nás</h4>
-                    <p>
-                        <i class="fa fa-envelope" aria-hidden="true"
-                            ><a href="mailto:livia.kelebercova@gmail.com">
-                                livia.kelebercova@gmail.com</a
-                            ></i
-                        >
-                    </p>
-                    <p>
-                        <i class="fa fa-phone" aria-hidden="true"
-                            ><a href="tel:0909500600"> 0909500600</a></i
-                        >
-                    </p>
                 </div>
                 <div class="col-25">
                     <h4>Rýchle odkazy</h4>
@@ -118,7 +102,6 @@
                     ></iframe>
                 </div>
             </div>
-            <div class="row">Created and designed by Lívia</div>
         </footer>
         <script src="js/accordion.js"></script>
         <script src="js/menu.js"></script>
